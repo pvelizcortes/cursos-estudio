@@ -133,6 +133,7 @@ Despliegue y acceso: la desplegué y la conecté a API Gateway con un proxy para
 **Regla práctica:** empezar con Lambda y API Gateway por simplicidad y costo, y migrar a ECS con Fargate cuando el tráfico sea constante o alto.
 
 ## ¿Dónde se guardan los secretos en AWS y cómo se obtienen desde la aplicación?:
+
 **Secrets Manager:** es el servicio para guardar secretos como contraseñas de bases de datos, claves de API y tokens. Los cifra con KMS, permite rotarlos automáticamente y controla el acceso con IAM.
 **Parameter Store (Systems Manager):** es una alternativa más simple y económica para guardar configuración y secretos, pero sin rotación automática integrada.
 **Cómo se obtienen:** la aplicación consulta el secreto en tiempo de ejecución usando el SDK de AWS, con el nombre del secreto, y recibe el valor ya descifrado.
