@@ -1,0 +1,253 @@
+/* Hoja de cuaderno: blanco yeso, renglones suaves, tinta gris */
+:root {
+  --papel: #f6f4ee;
+  --tinta: #2f2e2b;
+  --tinta-suave: #8a867c;
+  --linea: #e9e5da;
+  --acento: #3d5a73;
+  --altura-barra: 56px;
+  --ancho-menu: 260px;
+  --renglon: 32px;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; height: 100%; }
+
+body {
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  line-height: var(--renglon);
+}
+
+/* ---------- Barra superior ---------- */
+.barra {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--altura-barra);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 20px;
+  background: var(--papel);
+  border-bottom: 1px solid var(--linea);
+  z-index: 10;
+}
+
+.marca {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.1rem;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+#buscar {
+  flex: 1;
+  max-width: 420px;
+  margin-left: auto;
+  padding: 6px 2px;
+  font: inherit;
+  color: var(--tinta);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--linea);
+  border-radius: 0;
+}
+
+#buscar::placeholder { color: var(--tinta-suave); }
+#buscar:focus { outline: none; border-bottom-color: var(--acento); }
+
+.boton {
+  display: none;
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
+  color: var(--tinta);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+/* ---------- Estructura ---------- */
+.estructura {
+  display: flex;
+  height: 100%;
+  padding-top: var(--altura-barra);
+}
+
+.menu {
+  position: fixed;
+  top: var(--altura-barra);
+  bottom: 0;
+  left: 0;
+  width: var(--ancho-menu);
+  overflow-y: auto;
+  padding: 24px 16px 60px 20px;
+  background: var(--papel);
+  border-right: 1px solid var(--linea);
+}
+
+.menu .tema { margin-bottom: 14px; }
+
+.menu .tema > a {
+  display: block;
+  color: var(--tinta-suave);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menu .tema > a:hover { color: var(--tinta); }
+
+.menu .tema.activo > a { color: var(--acento); }
+
+.menu .preguntas {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0 0 0 10px;
+}
+
+.menu .preguntas button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  font: inherit;
+  font-size: 13px;
+  line-height: 22px;
+  text-align: left;
+  color: var(--tinta-suave);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.menu .preguntas button:hover { color: var(--tinta); }
+
+/* ---------- Hoja de lectura ---------- */
+.contenido {
+  flex: 1;
+  min-width: 0;
+  margin-left: var(--ancho-menu);
+  padding: 40px 32px 120px;
+  /* renglones */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--renglon) - 1px),
+    var(--linea) calc(var(--renglon) - 1px),
+    var(--linea) var(--renglon)
+  );
+  background-attachment: local;
+  background-position: 0 0;
+}
+
+.contenido > div {
+  max-width: 680px;
+  margin: 0 auto;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 17px;
+}
+
+.contenido h1 {
+  margin: 0 0 var(--renglon);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: normal;
+  line-height: calc(var(--renglon) * 2);
+  color: var(--tinta);
+}
+
+.contenido p {
+  margin: 0;
+}
+
+.contenido .pregunta {
+  scroll-margin-top: calc(var(--altura-barra) + var(--renglon));
+  margin-bottom: var(--renglon);
+}
+
+.contenido .pregunta h2 {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: var(--renglon);
+  color: var(--acento);
+}
+
+.contenido .pregunta p {
+  margin-top: 0;
+}
+
+.contenido strong { font-weight: 600; }
+
+/* ---------- Resultados de búsqueda ---------- */
+.resultados { list-style: none; padding: 0; margin: 0; }
+
+.resultados li { margin-bottom: var(--renglon); }
+
+.resultados a {
+  display: block;
+  color: var(--tinta);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.resultados a:hover strong { color: var(--acento); }
+
+.resultados .tema-res {
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 22px;
+  color: var(--tinta-suave);
+}
+
+.resultados strong {
+  display: block;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: var(--renglon);
+}
+
+.resultados a > span:last-child {
+  display: block;
+  font-size: 15px;
+  color: var(--tinta-suave);
+}
+
+.fondo { display: none; }
+
+/* ---------- Pantallas chicas ---------- */
+@media (max-width: 800px) {
+  .boton { display: inline-flex; align-items: center; justify-content: center; }
+  .marca { display: none; }
+  #buscar { max-width: none; }
+
+  .menu {
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    z-index: 20;
+    background: var(--papel);
+  }
+  .menu.abierto { transform: translateX(0); }
+
+  .fondo.visible {
+    display: block;
+    position: fixed;
+    inset: var(--altura-barra) 0 0 0;
+    background: rgba(47, 46, 43, 0.25);
+    z-index: 15;
+  }
+
+  .contenido { margin-left: 0; padding: 24px 20px 100px; }
+  .contenido h1 { font-size: 26px; }
+}

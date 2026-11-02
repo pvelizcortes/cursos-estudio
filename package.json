@@ -1,0 +1,9 @@
+{
+  "name": "apuntes-biblioteca",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Biblioteca de apuntes en Markdown, lectura estática",
+  "scripts": {
+    "build": "node scripts/generar-contenido.mjs"
+  }
+}

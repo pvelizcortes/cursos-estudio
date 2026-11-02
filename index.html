@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mis apuntes</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="barra">
+    <button id="abrir-menu" class="boton" aria-label="Abrir temas">☰</button>
+    <h1 class="marca">Mis apuntes</h1>
+    <input id="buscar" type="search" placeholder="Buscar en todos los temas…" aria-label="Buscar">
+  </header>
+
+  <div class="estructura">
+    <aside id="menu" class="menu">
+      <nav id="temas" aria-label="Temas"></nav>
+    </aside>
+    <main id="contenido" class="contenido"></main>
+  </div>
+
+  <div id="fondo" class="fondo"></div>
+
+  <script src="contenido.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
