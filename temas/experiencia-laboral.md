@@ -35,3 +35,26 @@ Legacy, AngularJS, Jquery, Ajax, ASPX
 **CORS:** la API .NET debe permitir el dominio del front en su configuración de CORS, o el navegador bloqueará las peticiones.
 
 **Mostrar los datos:** el resultado se asigna al $scope (o a controllerAs) y se muestra en la vista con directivas como ng-repeat
+
+## ¿Qué experiencia tenés con APIs REST en .NET?
+Mi experiencia más completa y directa con APIs REST fue en Izytech, desarrollando en .NET y consumiendo esas APIs desde un front en Angular.
+
+**Hosting:** las APIs estaban alojadas en una instancia EC2 de AWS, sobre una máquina virtual con Windows e IIS como servidor web.
+
+**Consumo:** el front en Angular hacía las llamadas HTTP a los endpoints de la API.
+
+**Gestión de documentos:** para el manejo de archivos usé el SDK de AWS para S3 desde la API.
+
+## ¿Qué experiencia tenés con APIs REST en NodeJS?
+Creé una API REST con NodeJS y la desplegué en AWS Lambda, expuesta a través de API Gateway.
+
+**Ventaja de Lambda:** no hay servidores que administrar; la función se ejecuta solo cuando llega una petición.
+
+**Rol de API Gateway:** recibe las peticiones HTTP y las dirige a la función correspondiente.
+
+## ¿Qué experiencia tenés en Emerios?
+En Emerios la API REST corría sobre servicios de EC2 detrás de un Application Load Balancer (ALB), que reparte el tráfico entre las instancias.
+
+**Servicios dockerizados:** además de la API, teníamos servicios en contenedores. Por ejemplo, RabbitMQ corría en ECS, y las imágenes de los contenedores se guardaban en ECR.
+
+**ECS y ECR:** ECS es el servicio que ejecuta y orquesta los contenedores; ECR es el registro donde se almacenan esas imágenes de Docker.
